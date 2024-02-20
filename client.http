@@ -1,0 +1,240 @@
+@base_url = http://localhost:8080/api
+@auth_token = {{authenticate.response.body.access_token}}
+
+# @name create_account
+POST {{base_url}}/accounts
+Content-Type: application/json
+
+{
+    "name": "Matheus Serafim",
+    "email": "serafim@mentores.com.br",
+    "password": "123123"
+}
+
+###
+# @name authenticate
+POST {{base_url}}/session
+Content-Type: application/json
+
+{
+    "email": "matheus18serafim@gmail.com",
+    "password": "123123"
+}
+
+###
+# @name authenticate
+POST {{base_url}}/session
+Content-Type: application/json
+
+{
+    "email": "ralessagomes@icloud.com",
+    "password": "123123"
+}
+
+###
+# @name authenticate
+POST {{base_url}}/session
+Content-Type: application/json
+
+{
+    "email": "moisestum@hotmail.com",
+    "password": "123123"
+}
+
+###
+# @name authenticate
+POST {{base_url}}/session
+Content-Type: application/json
+
+{
+    "email": "serafim@mentores.com.br",
+    "password": "123123"
+}
+
+###
+# @name ME
+GET {{base_url}}/me
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+# @name all-users
+GET {{base_url}}/users/all
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+# @name create-category
+POST {{base_url}}/category
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+    "name": "Gelado",
+    "slug": "gelado"
+}
+
+###
+
+# @name update-category
+PUT {{base_url}}/categories/996d5728-0542-4505-b0c3-d73a43990583
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+    "name": "Gelado",
+    "slug": "gelado"
+}
+
+###
+
+# @name delete-category
+DELETE {{base_url}}/categories/18c64e31-c4f3-40c5-8c0f-b6181b7c2d9c
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+# @name get-categories
+GET {{base_url}}/category
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+
+###
+
+# @name create-product
+POST {{base_url}}/product
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+    "cover_image": ["https://firebasestorage.googleapis.com/v0/b/coffee-delivery-416bb.appspot.com/o/Type%3DExpresso.png?alt=media&token=cd486ae8-a41e-44c0-874a-ad1a1b344b5e"],
+    "title": "Café com Leite",
+    "slug": "cafe-com-leite",
+    "description": "Meio a meio de expresso tradicional com leite vaporizado",
+    "ingredients": ["Agua fria", "Grão de café", "Gelo"],
+    "discount_percentage": 0,
+    "unity_price": 11.99,
+    "category_id": [
+        "3183d5bb-997c-4ad2-88c1-4625eeec58ba",
+        "98c13c77-9f7e-4bcc-87f8-1dc2e3c13880"
+    ]
+ }
+
+###
+
+# @name update-product
+PATCH {{base_url}}/products/e346bb0b-79c7-4bcb-8559-56140b607e93
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+    "cover_image": ["https://firebasestorage.googleapis.com/v0/b/coffee-delivery-416bb.appspot.com/o/Type%3DExpresso.png?alt=media&token=cd486ae8-a41e-44c0-874a-ad1a1b344b5e"],
+    "title": "Café com Leite",
+    "slug": "cafe-com-leite",
+    "description": "Meio a meio de expresso tradicional com leite vaporizado",
+    "ingredients": ["Agua fria", "Grão de café", "Gelo"],
+    "discount_percentage": 0,
+    "unity_price": 11.99,
+    "category_id": [
+        "1cbae54b-f4d3-4a51-9085-ca41ea0bb09f",
+        "98c13c77-9f7e-4bcc-87f8-1dc2e3c13880"
+    ]
+}
+
+###
+
+# @name delete-product
+DELETE {{base_url}}/products/510cafa5-40a2-49f9-bcaa-5ff861f90cba
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+# @name get-products
+GET {{base_url}}/products
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+# @name create-company
+POST {{base_url}}/create-company
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "Minha Empresa",
+  "description": "Uma descrição da minha empresa",
+  "logo_url": "https://example.com/logo.png",
+  "phone": "(11) 98765-4321",
+  "email": "contato@minhaempresa.com",
+  "address": "Rua Principal, 123",
+  "city": "São Paulo",
+  "state": "SP",
+  "zipCode": "01234-567",
+  "country": "Brasil",
+  "facebook": "https://www.facebook.com/minhaempresa",
+  "instagram": "https://www.instagram.com/minhaempresa",
+  "linkedin": "https://www.linkedin.com/company/minhaempresa",
+  "twitter": "https://twitter.com/minhaempresa",
+  "cnpj": "12.345.678/0001-90",
+  "whatsapp_message": "Olá! Como podemos ajudar?"
+}
+
+###
+
+# @name get-company
+GET {{base_url}}/company
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+# @name updated-company
+PUT {{base_url}}/company/c7445ffc-6dc4-418b-8b30-98d1a7451f78
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "Minha Empresa",
+  "description": "Uma descrição da minha empresa",
+  "logo_url": "https://example.com/logo.png",
+  "phone": "(11) 98765-4321",
+  "email": "contato@minhaempresa.com",
+  "address": "Rua Rio Iguaçu, 197 AP 401",
+  "city": "Paraná",
+  "state": "PR",
+  "zipCode": "83322-160",
+  "country": "Brasil",
+  "facebook": "https://www.facebook.com/minhaempresa",
+  "instagram": "https://www.instagram.com/minhaempresa",
+  "linkedin": "https://www.linkedin.com/company/minhaempresa",
+  "twitter": "https://twitter.com/minhaempresa",
+  "cnpj": "12.345.678/0001-90",
+  "whatsapp_message": "Olá! Como podemos ajudar?"
+}
+
+###
+
+# @name updated-user-for-admin
+PATCH {{base_url}}/users/4538c076-5267-4221-b4ce-ed05deaab9cd/update/admin
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+    "role": "USER"
+}
+
+###
+
+# @name updated-missing-password
+PATCH {{base_url}}/users/update/missing-password
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+    "password": "321321"
+}
