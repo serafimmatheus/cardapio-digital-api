@@ -24,50 +24,42 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# Documentação da API
 
-## Installation
+Esta documentação descreve os endpoints e os payloads disponíveis para a API.
 
-```bash
-$ npm install
-```
+## Base URL
 
-## Running the app
+@base_url = http://localhost:8080/api
+@auth_token = {{authenticate.response.body.access_token}}
 
-```bash
-# development
-$ npm run start
+## Endpoints
 
-# watch mode
-$ npm run start:dev
+### Autenticação
 
-# production mode
-$ npm run start:prod
-```
+#### Criar conta
 
-## Test
+````http
+POST {{base_url}}/accounts
+Content-Type: application/json
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
+## Endpoints
 
-# test coverage
-$ npm run test:cov
-```
+### Autenticação
 
-## Support
+#### Criar conta
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```http
+POST {{base_url}}/accounts
+Content-Type: application/json
 
-## Stay in touch
+Payload:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+{
+    "name": "Matheus Serafim",
+    "email": "serafim@mentores.com.br",
+    "password": "123123"
+}
+````
